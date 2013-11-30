@@ -1,27 +1,30 @@
 if ( SERVER ) then 
-	-- Clientside Files --
+
+	-- CL Files --
 	AddCSLuaFile( )
+
+	-- SV Includes --
+	include( 'arpg/adb/server/AdbLib.lua' )
+	
+	-- SV ICalls --
+	
 end
 
-if ( CLIENT ) then 
-	-- Clientside Includes --
+
+if( CLIENT ) then
+
+	-- CL Includes --
+	
+	-- CL ICalls --
+	
 end
 
-if ( SERVER ) then 
-	-- Serverside Includes --
-	include( 'arpg/adb/server/adblib.lua' )
-end
 
-if ( !SERVER and !CLIENT ) then 
-	-- Shared includes --
-end
+if ( SERVER and CLIENT ) then
+	
+	-- SH Includes --
+	
+	-- SH ICalls --
 
-if ( CLIENT ) then 
-	-- Clientside Init Calls --
-end
 
-if ( SERVER ) then 
-	-- Serverside Init Calls --
-	-- ServerInit( )
 end
-

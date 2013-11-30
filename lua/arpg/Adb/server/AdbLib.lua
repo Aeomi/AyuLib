@@ -1,11 +1,9 @@
+include( 'SQL.lua' )
 
-
--- Adb.SVPrint( "", Color( 175, 175, 255 ) ) --
-
--- Load Globals --
+-- Globals --
 Adb 	= Adb 	 or { }	-- Main Table
 Adb.Pl  = Adb.Pl or { } -- Pl Database
-------------------
+-------------
 
 
 
@@ -13,8 +11,8 @@ Adb.Pl  = Adb.Pl or { } -- Pl Database
 |   Generic   |
 |*************/
 -- Dynamic Printing --
-local function Adb.SVPrint( Str, Clr )
-	MsgC( Clr, "[ Ayu/ARpg/DB ]: ".. Str .."\n" )
+function Adb.SVPrint( Str, Clr )
+	MsgC( Clr, "[ Ayu/ARpg/Adb ]: ".. Str .."\n" )
 end
 
 -- Get Pl UniqueID --
@@ -24,7 +22,7 @@ function Adb.GetID( Pl )
 end
 
 -- Create Pl Tbl --
-function Adb.GenPlTbl( Pl, name, hp, speed, power )
+function Adb.PlGenTbl( Pl, name, hp, speed, power )
     local ID = Adb.GetID( Pl )
     Adb.Pl[ID] = { Name = name, Hp = hp, Speed = speed, Power = power }
 	Adb.SVPrint( "Generated Player row for ".. Pl:Nick( ) .." ( ".. name .. " ) ", Color( 175, 175, 255 ) )
@@ -66,12 +64,13 @@ function Adb.SaveTxt( Pl )
 		if ( file.Read( "AyuLib/ARpg/DB/Text/IDs/".. ID ..".txt" ) != nil ) then
 			Adb.SVPrint( "[ Txt ] Save complete", Color( 175, 175, 255 ) )
 		else
-			Adb.SVPrint( "[ Txt ] Save failed! - Retrying"..., Color( 175, 175, 255 ) )
+			Adb.SVPrint( "[ Txt ] Save failed! - Retrying...", Color( 175, 175, 255 ) )
 			Adb.SaveTxt( Pl )
 		end
 	end
 end
 
+--[[
 -- Save Tbl->Sql --
 function Adb.SaveSql( Pl )
 	local ID = Adb.GetID( Pl )
@@ -85,7 +84,7 @@ function Adb.SaveSql( Pl )
 		Adb.SaveSql( Pl )
 	end
 end
-
+--]]
 
 
 /*************|
@@ -101,6 +100,7 @@ function Adb.LoadTxt( Pl )
 	end
 end
 
+--[[
 -- Load Sql->Tbl --
 function Adb.LoadSql( Pl )
 	local ID = Adb.GetID( Pl )
@@ -109,5 +109,4 @@ function Adb.LoadSql( Pl )
 		return util.KeyValuesToTable( Value )
 	end
 end
-
-
+]]--
