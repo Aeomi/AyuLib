@@ -3,9 +3,5 @@
 
 
 -- ACS:
---  	Update & make usable ACS ( Ayu Currency System )
---		Integrate ACS into AyuLib
-
--- Title:
---		Stuff
--- 		Stuff
+--      Update & make usable ACS ( Ayu Currency System )
+--      Integrate ACS into AyuLib
