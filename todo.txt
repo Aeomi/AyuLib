@@ -1,0 +1,11 @@
+--=[[ Project Ideas Can Be Stated Here ]]=--
+
+
+
+-- ACS:
+--  	Update & make usable ACS ( Ayu Currency System )
+--		Integrate ACS into AyuLib
+
+-- Title:
+--		Stuff
+-- 		Stuff
